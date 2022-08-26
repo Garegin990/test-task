@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "allowJs": true,
+    "target": "es6",
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "paths": {
+      "assert": [
+        "./assert.ts"
+      ]
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

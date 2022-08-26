@@ -1,0 +1,300 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2.0.0",
+    "title": "Test Task API"
+  },
+  "basePath": "/api",
+  "paths": {
+    "/user": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all user's list",
+        "parameters": [
+          {
+            "name": "x-authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Fail"
+          }
+        }
+      }
+    },
+    "/user/sign-up": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Add new user",
+        "parameters": [
+          {
+            "name": "Sign up",
+            "in": "body",
+            "schema": {
+              "required": [
+                "name",
+                "nickname",
+                "email",
+                "password",
+                "phone"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "nickname": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User successfully registered"
+          },
+          "400": {
+            "description": "Registration failed"
+          }
+        }
+      }
+    },
+    "/user/sign-in": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Sing in with email and password",
+        "parameters": [
+          {
+            "name": "login",
+            "in": "body",
+            "schema": {
+              "required": [
+                "username",
+                "password"
+              ],
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Fail"
+          }
+        }
+      }
+    },
+    "/hairdresser": {
+      "post": {
+        "tags": [
+          "Hairdresser"
+        ],
+        "summary": "Add new hairdresser",
+        "parameters": [
+          {
+            "name": "Hairdresser",
+            "in": "body",
+            "schema": {
+              "required": [
+                "name",
+                "phone",
+                "email",
+                "spec",
+                "freeTimeSlots"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "spec": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "freeTimeSlots": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Fail"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Hairdresser"
+        ],
+        "summary": "Get All Hairdressers",
+        "parameters": [
+          {
+            "name": "x-authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Fail"
+          }
+        }
+      }
+    },
+    "/hairdresser/{hairdresserId}": {
+      "put": {
+        "tags": [
+          "Hairdresser"
+        ],
+        "summary": "update hairdresser by Id ",
+        "parameters": [
+          {
+            "name": "x-authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "hairdresserId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+            {
+              "name": "Hairdresser",
+              "in": "body",
+              "schema": {
+                "required": [
+                  "name",
+                  "phone",
+                  "email",
+                  "spec",
+                  "freeTimeSlots"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "spec": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "freeTimeSlots": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Fail"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Hairdresser"
+        ],
+        "summary": "Delete hairdresser by Id",
+        "parameters": [
+          {
+            "name": "x-authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "hairdresserId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Fail"
+          }
+        }
+      }
+    }
+  }
+}
